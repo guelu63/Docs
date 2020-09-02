@@ -106,43 +106,43 @@ La siguiente tabla enumera algunos de los modificadores existentes y muestra eje
 | nl2br                                    | Convierte un carácter de nueva línea (\\ n) en un elemento html. Usa esto si estás recibiendo entradas y crées que debería haber nuevas líneas y no las hay. Similar a la función de PHP [nl2br](http://www.php.net/manual/es/function.nl2br.php).                                                                            | `[[+textfile:nl2br]]`                                  |
 | date                                     | Formatea una marca de tiempo Unix en un formato diferente. Similar a [strftime](http://www.php.net/manual/es/function.strftime.php). El valor es el formato. Consulta [Formatos de fecha](building-sites/tag-syntax/date-formats "Formatos de fecha").                              | ```[[+birthyear:date=`%Y`]]```                         |
 | strtotime                                | Convierte una cadena de fecha en una marca de tiempo Unix. Útil para combinar esto con el filtro de salida de fecha. Similar a [strtotime](http://www.php.net/strtotime). Toma una fecha. Consulta [Formatos de fecha](building-sites/tag-syntax/date-formats "Formatos de fecha").   | `[[+thetime:strtotime]]`                               |
-| fuzzydate                                | Returns a pretty date format with yesterday and today being filtered. Takes in a date.                                                                                                                                                                      | `[[+createdon:fuzzydate]]`                             |
-| ago                                      | Returns a pretty date format in seconds, minutes, weeks or months ago. Takes in a date (strtotime).                                                                                                                                                         | ```[[+createdon:date=`%d-%m-%Y`:ago]]```               |
-| md5                                      | Creates an MD5 hash of the input string. Similar to PHP's [md5](http://www.php.net/manual/en/function.md5.php).                                                                                                                                             | `[[+password:md5]]`                                    |
-| cdata                                    | Wraps the text with CDATA tags                                                                                                                                                                                                                              | `[[+content:cdata]]`                                   |
-| userinfo                                 | Returns the requested user data. The element must be a modUser ID. The value field is the column to grab, e.g. fullname, email. See Examples below.                                                                                                         | ```[[+modx.user.id:userinfo=`username`]]```            |
-| isloggedin                               | Returns true if user is authenticated in this context.                                                                                                                                                                                                      | `[[+modx.user.id:isloggedin]]`                         |
-| isnotloggedin                            | Returns true if user is not authenticated in this context.                                                                                                                                                                                                  | `[[+modx.user.id:isnotloggedin]]`                      |
-| toPlaceholder                            | Puts the input value into the passed placeholder. Does not prevent the output of the TV value, so add ```[[*someTV:toPlaceholder=`placeholder`:notempty=``]]``` if you don't want to output the value of the TV itself.                                     | ```[[*someTV:toPlaceholder=`placeholder`]]```          |
-| cssToHead                                | Put a `<link>` element into <head>, where the input value is placed inside the href attribute. Uses [modX.regClientCSS](extending-modx/modx-class/reference/modx.regclientcss "modX.regClientCSS").                                                                                                                                                             | `[[+cssTV:cssToHead]]`                                 |
-| htmlToHead                               | Insert a block of HTML code in the header of the page, before `</head>`. Uses  [modX.regClientStartupHTMLBlock](extending-modx/modx-class/reference/modx.regclientstartuphtmlblock "modX.regClientStartupHTMLBlock")                                                                                                                       | `[[+htmlTV:htmlToHead]]`                               |
-| htmlToBottom                             | Insert HTML code at the end of the page, before `</body>`. Uses [modX.regClientHTMLBlock](extending-modx/modx-class/reference/modx.regclienthtmlblock "modX.regClientHTMLBlock").                                                                           | `[[+htmlTV:htmlToBottom]]`                             |
-| jsToHead                                 | Insert JS code (or a link) in the header of the page, before `</head>`. Uses [modX.regClientStartupScript](extending-modx/modx-class/reference/modx.regclientstartupscript "modX.regClientStartupScript").                                                 | `[[+jsTV:jsToHead]]`                                   |
-| jsToBottom                               | Insert JS code (or a link) at the end of the page, before `</body>`. Uses [modX.regClientScript](extending-modx/modx-class/reference/modx.regclientscript "modX.regClientScript").                                                                          | `[[+jsTV:jsToBottom]]`                                 |
-| urlencode                                | Converts the input into a URL-friendly string similar to how an HTML form would do so. Similar to PHP's [urlencode](http://www.php.net/manual/en/function.urlencode.php)                                                                                    | `[[+mystring:urlencode]]`                              |
-| urldecode                                | Converts the input from an URL-friendly string Similar to PHP's [urldecode](http://www.php.net/manual/en/function.urldecode.php)                                                                                                                            | `[[+myparam:urldecode]]`                               |
-| filterPathSegment                        | Added in 2.7. Converts the input into a URL-friendly string with the same mechanism that turns a pagetitle into an alias, including transliteration if enabled. Useful for custom urls.                                                                     | `[[+pagetitle:filterPathSegment]]`                     |
+| fuzzydate                                | Devuelve un bonito formato de fecha con ayer y hoy filtrados. Toma una fecha.                                                                                                                                                                      | `[[+createdon:fuzzydate]]`                             |
+| ago                                      | Devuelve un bonito formato de fecha en segundos, minutos, semanas o meses. Toma una fecha (strtotime).                                                                                                                                                         | ```[[+createdon:date=`%d-%m-%Y`:ago]]```               |
+| md5                                      | Crea un hash MD5 de la cadena de entrada. Similar a la función de PHP  [md5](http://www.php.net/manual/es/function.md5.php).                                                                                                                                             | `[[+password:md5]]`                                    |
+| cdata                                    | Envuelve el texto con etiquetas CDATA                                                                                                                                                                                                                              | `[[+content:cdata]]`                                   |
+| userinfo                                 | Devuelve los datos de usuario solicitados. El elemento debe ser un ID de modUser. El campo de valor es la columna a tomar, por ej. fullname, email. Ver los ejemplos a continuación.                                                                                                         | ```[[+modx.user.id:userinfo=`username`]]```            |
+| isloggedin                               | Devuelve verdadero si el usuario está autenticado en este contexto.                                                                                                                                                                                                      | `[[+modx.user.id:isloggedin]]`                         |
+| isnotloggedin                            | Devuelve verdadero si el usuario no está autenticado en este contexto.                                                                                                                                                                                                  | `[[+modx.user.id:isnotloggedin]]`                      |
+| toPlaceholder                            | Pone el valor de entrada en el marcador de posición pasado. No impide la salida del valor de VdP, así que agrega ```[[*algunaVdP:toPlaceholder =`placeholder`:notempty =``]]```si no deseas generar el valor de la VdP en sí.                                     | ```[[*someTV:toPlaceholder=`placeholder`]]```          |
+| cssToHead                                | Coloca un elemento `<link>` en <head>, donde el valor de entrada se coloca dentro del atributo href. Utiliza [modX.regClientCSS](extending-modx/modx-class/reference/modx.regclientcss "modX.regClientCSS").                                                                                                                                                             | `[[+cssTV:cssToHead]]`                                 |
+| htmlToHead                               | Inserta un bloque de código HTML en el encabezado de la página, antes de `</head>`. Utiliza [modX.regClientStartupHTMLBlock](extending-modx/modx-class/reference/modx.regclientstartuphtmlblock "modX.regClientStartupHTMLBlock")                                                                                                                       | `[[+htmlTV:htmlToHead]]`                               |
+| htmlToBottom                             | Inserta el código HTML al final de la página, antes de `</body>`. Utiliza [modX.regClientHTMLBlock](extending-modx/modx-class/reference/modx.regclienthtmlblock "modX.regClientHTMLBlock").                                                                           | `[[+htmlTV:htmlToBottom]]`                             |
+| jsToHead                                 | Inserta el código JS (o un enlace) en el encabezado de la página, antes de `</head>`. Utiliza [modX.regClientStartupScript](extending-modx/modx-class/reference/modx.regclientstartupscript "modX.regClientStartupScript").                                                 | `[[+jsTV:jsToHead]]`                                   |
+| jsToBottom                               | Inserta el código JS (o un enlace) al final de la página, antes de `</body>`. Utiliza [modX.regClientScript](extending-modx/modx-class/reference/modx.regclientscript "modX.regClientScript").                                                                        | `[[+jsTV:jsToBottom]]`                                 |
+| urlencode                                | Convierte la entrada en una cadena compatible con URL similar a cómo lo haría un formulario HTML. Similar a la función de PHP [urlencode](http://www.php.net/manual/es/function.urlencode.php)                                                                                    | `[[+mystring:urlencode]]`                              |
+| urldecode                                | Convierte la entrada de una cadena compatible con URL. Similar a [urldecode](http://www.php.net/manual/es/function.urldecode.php)                                                                                                                           | `[[+myparam:urldecode]]`                               |
+| filterPathSegment                        | Agregado en 2.7. Convierte la entrada en una cadena compatible con URL con el mismo mecanismo que convierte un título de página en un alias, incluida la transliteración si está habilitada. Útil para URL personalizadas.                                                                     | `[[+pagetitle:filterPathSegment]]`                     |
 
-### Caching
+### Almacenamiento en caché
 
-In general, any content in a placeholder that you think **might change dynamically** should be uncached. For example:
+En general, cualquier contenido de un marcador de posición que creas que **podría cambiar dinámicamente**, debe eliminarse en caché. Por ejemplo:
 
 ``` php
 [[+placeholder:default=`A default value!`]]
 ```
 
-This means that this could **sometimes** be empty, and sometimes not. Why would you ever want that cached? That would eliminate the point of the output modifier.
+Lo que significa que esto podría, **a veces**, estar vacío y, a veces, no. ¿Por qué querrías eso en caché? Eso eliminaría el punto del modificador de salida.
 
-Sometimes, output modifiers can be used on a cached placeholder - but only if you're calling the Snippet that sets them cached as well. Otherwise, you're performing an illogical maneuver - trying to cache statically something that was never meant to be static.
+A veces, los modificadores de salida se pueden usar en un marcador de posición guardado en caché, pero solo si se está llamando al snippet que los establece también guardado en caché. De lo contrario, estás realizando una maniobra ilógica: tratando de almacenar en caché estáticamente algo que nunca estuvo destinado a ser estático.
 
-In general, the rule is: If you set a placeholder in an uncached Snippet, the placeholder needs to be uncached as well if you expect the content of the placeholder to differ.
+En general, la regla es: si estableces un marcador de posición en un snippet no almacenado en caché, el marcador de posición también debe eliminarse en caché si esperas que el contenido del marcador de posición sea diferente.
 
-### Using an Output Modifier with Tag Properties
+### Uso de un modificador de salida con propiedades de etiqueta
 
-If you have properties on the tag, you'll want to specify those **after** the modifier:
+Si tienes propiedades en la etiqueta, querrás especificarlas **después** del modificador:
 
 ``` php
-[[!getResources:default=`Sorry - nothing matched your search.`?
+[[!getResources:default=`Disculpas, su búsqueda no tuvo resultados.`?
     &tplFirst=`blogTpl`
     &parents=`2,3,4,8`
     &tvFilters=`blog_tags==%[[!tag:htmlent]]%`
@@ -150,25 +150,25 @@ If you have properties on the tag, you'll want to specify those **after** the mo
 ]]
 ```
 
-### Creating a Custom Output Modifier
+### Crear un modificador de salida personalizado
 
-Also, [Snippets](extending-modx/snippets "Snippets") can be used as custom modifiers. Simply put the [Snippet](extending-modx/snippets "Snippets") name instead of the modifier. Example with a snippet named 'makeExciting' that appends a variable amount of exclamation marks:
+Además, los [Snippets](extending-modx/snippets "Snippets") se pueden usar como modificadores personalizados. Simplemente ponga el nombre del [Snippet](extending-modx/snippets "Snippets") en lugar del modificador. Ejemplo con un snippet llamado 'makeExciting' que agrega una cantidad variable de signos de exclamación:
 
 ``` php
 [[*pagetitle:makeExciting=`4`]]
 ```
 
-This document variable call with an output modifier will pass these properties to the snippet:
+Esta llamada de variable de documento con un modificador de salida pasará estas propiedades al snippet:
 
-| Param   | Value                             | Example Result                        |
+| Parametro   | Valor                             | Ejemplo de resultado                        |
 | ------- | --------------------------------- | ------------------------------------- |
-| input   | The element's value.              | The value of `[[*pagetitle]]`         |
-| options | Any value passed to the modifier. | '4'                                   |
-| token   | The type of the parent element.   | \* (the token on `pagetitle`)         |
-| name    | The name of the parent element.   | pagetitle                             |
-| tag     | The complete parent tag.          | ```[[*pagetitle:makeExciting=`4`]]``` |
+| input   | El valor del elemento              | El valor de `[[*pagetitle]]`         |
+| options | Cualquier valor pasado al modificador. | '4'                                   |
+| token   | El tipo de elemento padre.   | \* (el token en `pagetitle`)         |
+| name    | El nombre del elemento padre.   | pagetitle                             |
+| tag     | La etiqueta completa.          | ```[[*pagetitle:makeExciting=`4`]]``` |
 
-Here is a sample implementation for our snippet makeExciting:
+Aquí hay una implementación de muestra para nuestro snippet makeExciting:
 
 ``` php
 $defaultExcitementLevel = 1;
@@ -184,57 +184,57 @@ for ( $i = $numberOfExclamations; $i > 0; $i-- ) {
 return $result;
 ```
 
-The return value of the call will be whatever the snippet returns. For our example, the result will be the value of the pagetitle document variable appended with four exclamation marks.
+El valor de retorno de la llamada será el que devuelva el snippet . Para nuestro ejemplo, el resultado será el valor de la variable del documento pagetitle con cuatro signos de exclamación añadidos al final.
 
-The original input value will be returned if the snippet returns an empty string.
+El valor de entrada original se devolverá si el snippet devuelve una cadena vacía.
 
-## Chaining (Multiple Output Filters)
+## Encadenamiento (múltiples filtros de salida)
 
-A good example of chaining would be to format a date string to another format, like so:
+Un buen ejemplo de encadenamiento sería formatear una cadena de fecha a otro formato, así:
 
 ``` php
 [[+mydate:strtotime:date=`%Y-%m-%d`]]
 ```
 
-Directly accessing the `modx_user_attributes` table in the database using output modifiers instead of a [Snippet](extending-modx/snippets "Snippets") can be accomplished simply by utilizing the userinfo modifier. Select the appropriate column from the table and specify it as the property of the output modifier, like so:
+El acceso directo a la tabla `modx_user_attributes` en la base de datos usando modificadores de salida en lugar de un [Snippet](extending-modx/snippets "Snippets") se puede lograr simplemente utilizando el modificador userinfo. Selecciona la columna adecuada de la tabla y especifícala como propiedad del modificador de salida, así:
 
 ``` php
-User Internal Key: [[!+modx.user.id:userinfo=`internalKey`]]<br />
-User name: [[!+modx.user.id:userinfo=`username`]]<br />
-Full Name: [[!+modx.user.id:userinfo=`fullname`]]<br />
+Clave interna del usuario: [[!+modx.user.id:userinfo=`internalKey`]]<br />
+Nombre de usuario: [[!+modx.user.id:userinfo=`username`]]<br />
+Nombre completo: [[!+modx.user.id:userinfo=`fullname`]]<br />
 Role:  [[!+modx.user.id:userinfo=`role`]]<br />
 E-mail: [[!+modx.user.id:userinfo=`email`]]<br />
-Phone: [[!+modx.user.id:userinfo=`phone`]]<br />
-Mobile Phone: [[!+modx.user.id:userinfo=`mobilephone`]]<br />
+Teléfono: [[!+modx.user.id:userinfo=`phone`]]<br />
+Teléfono móvil: [[!+modx.user.id:userinfo=`mobilephone`]]<br />
 Fax: [[!+modx.user.id:userinfo=`fax`]]<br />
-Date of birth: [[!+modx.user.id:userinfo=`dob`:date=`%Y-%m-%d`]]<br />
-Gender: [[!+modx.user.id:userinfo=`gender`]]<br />
-Country: [[+modx.user.id:userinfo=`country`]]<br />
-State: [[+modx.user.id:userinfo=`state`]]<br />
-Zip Code: [[+modx.user.id:userinfo=`zip`]]<br />
-Photo: [[+modx.user.id:userinfo=`photo`]]<br />
-Comment: [[+modx.user.id:userinfo=`comment`]]<br />
-Password: [[+modx.user.id:userinfo=`password`]]<br />
-Cache Password: [[+modx.user.id:userinfo=`cachepwd`]]<br />
-Last Login: [[+modx.user.id:userinfo=`lastlogin`:date=`%Y-%m-%d`]]<br />
-The Login:[[+modx.user.id:userinfo=`thislogin`:date=`%Y-%m-%d`]]<br />
-Number of Logins: [[+modx.user.id:userinfo=`logincount`]]
+Fecha de nacimiento: [[!+modx.user.id:userinfo=`dob`:date=`%d-%m-%Y`]]<br />
+Género: [[!+modx.user.id:userinfo=`gender`]]<br />
+País: [[+modx.user.id:userinfo=`country`]]<br />
+Estado: [[+modx.user.id:userinfo=`state`]]<br />
+Código postal: [[+modx.user.id:userinfo=`zip`]]<br />
+Foto: [[+modx.user.id:userinfo=`photo`]]<br />
+Comentario: [[+modx.user.id:userinfo=`comment`]]<br />
+Contraseña: [[+modx.user.id:userinfo=`password`]]<br />
+Contraseña de caché: [[+modx.user.id:userinfo=`cachepwd`]]<br />
+Último acceso: [[+modx.user.id:userinfo=`lastlogin`:date=`%d-%m-%Y`]]<br />
+El inicio de sesión:[[+modx.user.id:userinfo=`thislogin`:date=`%d-%m-%Y`]]<br />d
+Número de inicios de sesión: [[+modx.user.id:userinfo=`logincount`]]
 ```
 
-`[[!+modx.user.id]]` defaults to the currently logged in user ID. You can of course replace that with `[[*createdby]]` or other resource field or placeholders that return a numeric ID representing a user.
+`[[! + modx.user.id]]` tiene como valor predeterminado el ID de usuario actualmente conectado. Por supuesto, puedes reemplazarlo con `[[* createdby]]` u otro campo de recursos o marcadores de posición que devuelvan una ID numérica que represente a un usuario.
 
-Note that the user ID and username is already available by default in MODX, so you dont need to use the "userinfo" modifier:
+Ten en cuenta que el ID de usuario y el nombre de usuario ya están disponibles de forma predeterminada en MODX, por lo que no es necesario utilizar el modificador "userinfo":
 
 ``` php
-[[!+modx.user.id]] - Prints the ID
-[[!+modx.user.username]] - Prints the username
+[[!+modx.user.id]] - Imprime el ID
+[[!+modx.user.username]] - Imprime el nombre de usuario
 ```
 
-You will most likely want to call these uncached (see note about caching above) to prevent unexpected results.
+Lo más probable es que desees llamarlos no almacenados en caché (consulta la nota sobre el almacenamiento en caché más arriba) para evitar resultados inesperados.
 
-## See Also
+## Ver también
 
-- [Properties and Property Sets](building-sites/properties-and-property-sets "Properties and Property Sets")
-- [Templates](building-sites/elements/templates "Templates")
-- [Template Variables](building-sites/elements/template-variables "Template Variables")
+- [Propiedades y conjuntos de propiedades](building-sites/properties-and-property-sets "Propiedades y conjuntos de propiedades")
+- [Plantillas](building-sites/elements/templates "Plantillas")
+- [Variables de Plantilla](building-sites/elements/template-variables "TVariables de Plantilla")
 - [Snippets](extending-modx/snippets "Snippets")
